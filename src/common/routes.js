@@ -21,12 +21,7 @@ export const headerRoutes = [
             }, {
                 name: "俱乐部",
                 path: "/gameclub",
-                icon: "table",
-                child: [{
-                    name: "xxx",
-                    path: "xxx",
-                    child: [],
-                }],
+                child: [],
             }]
         }, {
             name: "赛事回顾",
