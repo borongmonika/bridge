@@ -26,9 +26,12 @@ class BasicLayout extends Component {
     }
   }
   render() {
+
+    // 识别
     const { history: { location: { pathname } } } = this.props;
+    const headerRouter = '/' + pathname.split('/')[1];
     const siderData = () => {
-      for (let route of headerRoutes) if (route.path == pathname) {
+      for (let route of headerRoutes) if (route.path === headerRouter) {
         return route;
       }
     }
@@ -50,7 +53,7 @@ class BasicLayout extends Component {
         <Header >
           <GlobalHeader
             headerRoutes={headerRoutes}
-            pathname={pathname}
+            pathname={headerRouter}
           />
         </Header>
         <Content style={{ padding: '0 50px' }}>
@@ -60,13 +63,12 @@ class BasicLayout extends Component {
             <Breadcrumb.Item>App</Breadcrumb.Item>
           </Breadcrumb>
           <Layout style={{ padding: '24px 0', background: '#fff' }}>
-            {siderRoute.child.length > 0 ?
-              <Sider style={{ background: '#fff', minHeight: "71vh" }} >
-                <GlobalSider
-                  siderRoute={siderRoute}
-                />
-              </Sider> : ''
-            }
+            <Sider style={{ background: '#fff', minHeight: "71vh" }} >
+              <GlobalSider
+
+                siderRoute={siderRoute}
+              />
+            </Sider>
             <Content style={{ padding: '0 24px', minHeight: 280 }}>
               {this.props.children}
             </Content>

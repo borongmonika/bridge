@@ -1,10 +1,11 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
+import { Link } from 'dva/router';
+
 
 const SubMenu = Menu.SubMenu;
 
 const GlobalSider = props => {
-
     const { siderRoute: { child: routeChild } } = props;
 
     function createMenuSub(childSub) {
@@ -31,8 +32,10 @@ const GlobalSider = props => {
             <Menu.Item
                 key={childItem.path}
             >
-                <Icon type={childItem.icon} />
-                {childItem.name}
+                <Link to={`/game${childItem.path}`}>
+                    <Icon type={childItem.icon} />
+                    {childItem.name}
+                </Link>
             </Menu.Item>
         )
     }
@@ -43,7 +46,7 @@ const GlobalSider = props => {
                 return (
                     <SubMenu
                         key={child.path}
-                        title={<span><Icon type={child.icon} /><span>{child.name}</span></span>}
+                        title={<Link to={`/game${child.path}`}><span><Icon type={child.icon} /><span>{child.name}</span></span> </Link>}
                     >
                         {child.child.map(childItem => {
                             if (childItem && childItem.child.length > 0) {
