@@ -63,12 +63,14 @@ class BasicLayout extends Component {
             <Breadcrumb.Item>App</Breadcrumb.Item>
           </Breadcrumb>
           <Layout style={{ padding: '24px 0', background: '#fff' }}>
-            <Sider style={{ background: '#fff', minHeight: "71vh" }} >
-              <GlobalSider
-
-                siderRoute={siderRoute}
-              />
-            </Sider>
+            {siderRoute.child.length > 0 ?
+              <Sider style={{ background: '#fff', minHeight: "71vh" }} >
+                <GlobalSider
+                  siderRoute={siderRoute}
+                />
+              </Sider>
+              : ''
+            }
             <Content style={{ padding: '0 24px', minHeight: 280 }}>
               {this.props.children}
             </Content>

@@ -21,7 +21,6 @@ export const headerRoutes = [
             }, {
                 name: "俱乐部",
                 path: "/gameclub",
-                icon: "table",
                 child: [],
             }]
         }, {
